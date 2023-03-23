@@ -21,8 +21,9 @@ public class Neuron {
         return Util.sigmoid(preActivation);
     }
 
-    public void mutate(double changeFactor) {
+    public void mutate() {
         int propertyToChange = random.nextInt(0, 4);
+        double changeFactor = random.nextDouble(-1, 1);
         if (propertyToChange == 0) {
             bias += changeFactor;
         } else if (propertyToChange == 1) {
