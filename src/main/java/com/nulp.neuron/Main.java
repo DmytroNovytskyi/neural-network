@@ -28,5 +28,24 @@ public class Main {
         System.out.printf("EXPECTED: 0.07 ACTUAL: %.2f\n", network.predict(4.31, 0.06, 5.33));
         System.out.printf("EXPECTED: 4.62 ACTUAL: %.2f\n", network.predict(0.06, 5.33, 0.07));
         System.out.printf("EXPECTED: 0.69 ACTUAL: %.2f\n", network.predict(5.33, 0.07, 4.62));
+
+        System.out.println("-----------------------LOGIC GATES-----------------------");
+        System.out.println("0 AND 0 = " + LogicGates.and(0, 0));
+        System.out.println("0 AND 1 = " + LogicGates.and(0, 1));
+        System.out.println("1 AND 0 = " + LogicGates.and(1, 0));
+        System.out.println("1 AND 1 = " + LogicGates.and(1, 1));
+        System.out.println("----------------------------------------------------------");
+        System.out.println("0 OR 0 = " + LogicGates.or(0, 0));
+        System.out.println("0 OR 1 = " + LogicGates.or(0, 1));
+        System.out.println("1 OR 0 = " + LogicGates.or(1, 0));
+        System.out.println("1 OR 1 = " + LogicGates.or(1, 1));
+        System.out.println("----------------------------------------------------------");
+        System.out.println("NOT 0 = " + LogicGates.not(0));
+        System.out.println("NOT 1 = " + LogicGates.not(1));
+        System.out.println("----------------------------------------------------------");
+        System.out.println("0 XOR 0 = " + LogicGates.xor(0, 0));
+        System.out.println("0 XOR 1 = " + LogicGates.xor(0, 1));
+        System.out.println("1 XOR 0 = " + LogicGates.xor(1, 0));
+        System.out.println("1 XOR 1 = " + LogicGates.xor(1, 1));
     }
 }
