@@ -3,7 +3,7 @@ package com.nulp.neuron;
 import java.util.Random;
 
 public class Neuron {
-    Random random = new Random();
+    private Random random = new Random();
     private Double oldBias = random.nextDouble(-1, 1);
     private Double oldWeight1 = random.nextDouble(-1, 1);
     private Double oldWeight2 = random.nextDouble(-1, 1);

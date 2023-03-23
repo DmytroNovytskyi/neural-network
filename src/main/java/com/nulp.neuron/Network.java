@@ -2,6 +2,7 @@ package com.nulp.neuron;
 
 public class Network {
     private final int EPOCHS = 10000000;
+    private final int EPOCHS_LOGGED = 10;
     private final Neuron[] NEURONS = {
             new Neuron(), new Neuron(), new Neuron(),
             new Neuron(), new Neuron(), new Neuron(),
@@ -18,6 +19,7 @@ public class Network {
     }
 
     public void train(double[][] data, double[] answers) {
+        int logFactor = EPOCHS / EPOCHS_LOGGED;
         Double bestEpochLoss = null;
         for (int epoch = 0; epoch < EPOCHS; epoch++) {
             Neuron epochNeuron = NEURONS[epoch % NEURONS.length];
@@ -40,7 +42,7 @@ public class Network {
                     epochNeuron.forget();
                 }
             }
-            if (epoch % (EPOCHS / 10) == 0) {
+            if (epoch % logFactor == 0) {
                 System.out.printf("Epoch: %3s | bestEpochLoss: %.15f | thisEpochLoss: %.15f%n",
                         epoch, bestEpochLoss, thisEpochLoss);
             }
