@@ -1,18 +1,20 @@
 package com.nulp.neuron;
 
-import java.util.Random;
-
 public class Network {
-    private final int EPOCHS = 1000;
+    private final int EPOCHS = 10000000;
     private final Neuron[] NEURONS = {
+            new Neuron(), new Neuron(), new Neuron(),
             new Neuron(), new Neuron(), new Neuron(),
             new Neuron()};
 
-    public Double predict(double input1, double input2, double input3){
+    public Double predict(double input1, double input2, double input3) {
         double neuron0 = NEURONS[0].compute(input1, input2, input3);
         double neuron1 = NEURONS[1].compute(input1, input2, input3);
         double neuron2 = NEURONS[2].compute(input1, input2, input3);
-        return NEURONS[3].compute(neuron0, neuron1, neuron2);
+        double neuron3 = NEURONS[3].compute(neuron0, neuron1, neuron2);
+        double neuron4 = NEURONS[4].compute(neuron0, neuron1, neuron2);
+        double neuron5 = NEURONS[5].compute(neuron0, neuron1, neuron2);
+        return NEURONS[6].compute(neuron3, neuron4, neuron5);
     }
 
     public void train(double[][] data, double[] answers) {
@@ -38,7 +40,7 @@ public class Network {
                     epochNeuron.forget();
                 }
             }
-            if (epoch % 10 == 0) {
+            if (epoch % (EPOCHS / 10) == 0) {
                 System.out.printf("Epoch: %3s | bestEpochLoss: %.15f | thisEpochLoss: %.15f%n",
                         epoch, bestEpochLoss, thisEpochLoss);
             }
