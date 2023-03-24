@@ -5,7 +5,7 @@ public class Util {
         return (1 / (1 + Math.exp(-in))) * 10;
     }
 
-    public static Double meanSquareLoss(double[] correctAnswers, double[] predictedAnswers) {
+    public static double meanSquareLoss(double[] correctAnswers, double[] predictedAnswers) {
         double sumSquare = 0;
         for (int i = 0; i < correctAnswers.length; i++) {
             double error = correctAnswers[i] - predictedAnswers[i];
