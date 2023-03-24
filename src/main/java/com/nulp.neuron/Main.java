@@ -14,7 +14,7 @@ public class Main {
                 {4.31, 0.06, 5.33}};
         double[] answers = {5.66, 1.23, 5.50, 1.14, 5.29, 1.60, 4.31, 0.06, 5.33, 0.07};
 
-        Network network = new Network(4, 2000000, 10);
+        Network network = new Network(10, 2000000, 10);
         network.train(data, answers);
         System.out.printf("EXPECTED: 5.66 ACTUAL: %.2f\n", network.predict(1.88, 4.52, 1.91));
         System.out.printf("EXPECTED: 1.23 ACTUAL: %.2f\n", network.predict(4.52, 1.91, 5.66));
@@ -28,6 +28,8 @@ public class Main {
         System.out.printf("EXPECTED: 0.07 ACTUAL: %.2f\n", network.predict(4.31, 0.06, 5.33));
         System.out.printf("EXPECTED: 4.62 ACTUAL: %.2f\n", network.predict(0.06, 5.33, 0.07));
         System.out.printf("EXPECTED: 0.69 ACTUAL: %.2f\n", network.predict(5.33, 0.07, 4.62));
+
+//        network.printWeights();
 
         testLogicGates();
     }

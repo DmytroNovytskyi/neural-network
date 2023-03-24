@@ -61,6 +61,39 @@ public class Network {
         }
     }
 
+    public void printWeights() {
+        for (int i = 0; i < (neurons.length - 1); i += 3) {
+            printNeuronLine(i);
+        }
+        System.out.println("                                                           neuron" + (neurons.length - 1));
+        System.out.printf("                                          (%9.5f %9.5f %9.5f %9.5f)\n",
+                neurons[neurons.length - 1].bias,
+                neurons[neurons.length - 1].weight1,
+                neurons[neurons.length - 1].weight2,
+                neurons[neurons.length - 1].weight3);
+    }
+
+    private void printNeuronLine(int rowNumber) {
+        System.out.println("                   neuron" + rowNumber
+                + "                                 neuron" + (rowNumber + 1)
+                + "                                 neuron" + (rowNumber + 2));
+        System.out.printf("(%9.5f %9.5f %9.5f %9.5f) (%9.5f %9.5f %9.5f %9.5f) (%9.5f %9.5f %9.5f %9.5f)\n",
+                neurons[rowNumber].bias,
+                neurons[rowNumber].weight1,
+                neurons[rowNumber].weight2,
+                neurons[rowNumber].weight3,
+                neurons[rowNumber + 1].bias,
+                neurons[rowNumber + 1].weight1,
+                neurons[rowNumber + 1].weight2,
+                neurons[rowNumber + 1].weight3,
+                neurons[rowNumber + 2].bias,
+                neurons[rowNumber + 2].weight1,
+                neurons[rowNumber + 2].weight2,
+                neurons[rowNumber + 2].weight3);
+        System.out.println("                     \\______________________________________" +
+                "___|________________________________________/");
+    }
+
     private double testPredictions(double[][] data, double[] answers) {
         double[] predictions = new double[data.length];
         for (int i = 0; i < data.length; i++) {
